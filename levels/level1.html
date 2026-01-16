@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Уровень 1 — Побег из интернета</title>
+    <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Уровень 1</h1>
+        <p>Вы застряли в сети на этом странном сайте. Чтобы пройти дальше, нужно найти секретный флаг в коде этой страницы.</p>
+        
+        <input type="text" id="flagInput" placeholder="Введите секретный флаг">
+        <br>
+        <button id="nextLevelBtn" disabled>Перейти на уровень 2</button>
+
+        <p class="hint">Подсказка: DevTools (F12) -> Elements. Ищи в скриптах...</p>
+    </div>
+
+    <script>
+        const input = document.getElementById('flagInput');
+        const button = document.getElementById('nextLevelBtn');
+        const SECRET_FLAG = "FLAG{HTML_INSIDE_2026}";
+
+        input.addEventListener('input', () => {
+            if (input.value.trim() === SECRET_FLAG) {
+                button.disabled = false;
+                button.style.backgroundColor = "#28a745";
+            } else {
+                button.disabled = true;
+                button.style.backgroundColor = "#007bff";
+            }
+        });
+
+        button.addEventListener('click', () => {
+            window.location.href = "level2.html"; // Переход на второй уровень
+        });
+    </script>
+</body>
+</html>
