@@ -3,16 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Escape Game — Главная</title>
+    <title>Escape Game — Начало</title>
     <link rel="stylesheet" href="assets/style.css">
+    <style>
+        /* Дополнительные стили только для главной страницы */
+        .container {
+            border-top: 5px solid #007bff; /* Синяя полоска сверху для красоты */
+            animation: fadeIn 1.5s ease-in;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+        .subtitle {
+            color: #666;
+            margin-bottom: 2rem;
+        }
+        .start-btn {
+            font-size: 1.2rem;
+            padding: 15px 30px;
+            background-color: #28a745; /* Сделаем кнопку старта зеленой */
+            text-decoration: none;
+            display: inline-block;
+        }
+        .start-btn:hover {
+            background-color: #218838;
+            transform: scale(1.05);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
 </head>
 <body>
+
     <div class="container">
-        <h1>Escape Game: Победить систему</h1>
-        <p>Добро пожаловать в квест по веб-разработке.</p>
-        <p>Твоя задача: найти все флаги, спрятанные в коде, консоли и стилях.</p>
+        <h1>ESCAPE_GAME</h1>
+        <p class="subtitle">Учебный проект по поиску уязвимостей</p>
         
-        <button onclick="location.href='levels/level1.html'">Начать испытание</button>
+        <p>Вы готовы проверить свои навыки в DevTools? <br> Каждая страница скрывает секретный флаг.</p>
+        
+        <a href="levels/level1.html" class="start-btn" style="color: white; border-radius: 4px;">ВОЙТИ В СИСТЕМУ</a>
+
+        <p class="hint">Совет: если застряли, жмите F12</p>
     </div>
+
 </body>
 </html>
