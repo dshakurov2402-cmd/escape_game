@@ -2,39 +2,18 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Уровень 2 — Глубокая отладка</title>
+    <title>Уровень 2</title>
     <link rel="stylesheet" href="../assets/style.css">
-    <style>
-        .warning-text {
-            color: #d9534f;
-            font-weight: bold;
-            margin-top: 10px;
-            display: none;
-        }
-    </style>
 </head>
 <body>
-
     <div class="container">
         <h1>Уровень 2</h1>
-        <p>На этой странице флаг не спрятан в HTML-коде. Программа записывает его куда-то во внутренние журналы...</p>
-        
+        <p>На этой странице флаг не спрятан в HTML-коде...</p>
         <input type="text" id="flagInput" placeholder="Введите флаг из консоли">
         <br>
         <button id="nextLevelBtn" disabled>Завершить мой ход</button>
-
-        <div id="warning" class="warning-text">Неверный флаг! Проверь вкладку Console (F12)</div>
-        <p class="hint">Подсказка: Системные администраторы часто оставляют пароли в логах.</p>
     </div>
 
     <script src="../assets/level2.js"></script>
-
-        button.addEventListener('click', () => {
-            alert('Поздравляю! Ты взломал уровень папы! \n\nТы крутышка!.\n\nТеперь ТВОЙ ХОД:\n1. Создай файл levels/level3.html\n2. Придумай свою загадку для меня!');
-            // Можно перенаправить на главную, чтобы он начал заново или начал кодить
-            window.location.href = "../index.html";
-        });
-    </script>
 </body>
 </html>
