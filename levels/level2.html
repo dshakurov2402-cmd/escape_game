@@ -3,43 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Уровень 2 — Глубже в сеть</title>
+    <title>Уровень 2 — Глубокая отладка</title>
     <link rel="stylesheet" href="../assets/style.css">
+    <style>
+        .warning-text {
+            color: #d9534f;
+            font-weight: bold;
+            margin-top: 10px;
+            display: none;
+        }
+    </style>
 </head>
 <body>
 
     <div class="container">
         <h1>Уровень 2</h1>
-        <p>На этой странице флага нет в тексте. Может, программа что-то «говорит» в консоль?</p>
+        <p>На этой странице флаг не спрятан в HTML-коде. Программа записывает его куда-то во внутренние журналы...</p>
         
         <input type="text" id="flagInput" placeholder="Введите флаг из консоли">
         <br>
-        <button id="nextLevelBtn" disabled>Завершить игру</button>
+        <button id="nextLevelBtn" disabled>Завершить мой ход</button>
 
-        <p class="hint">Подсказка: Открой Console в инструментах разработчика.</p>
+        <div id="warning" class="warning-text">Неверный флаг! Проверь вкладку Console (F12)</div>
+        <p class="hint">Подсказка: Системные администраторы часто оставляют пароли в логах.</p>
     </div>
 
     <script>
-        // Сын должен увидеть это в консоли
-        console.log("%cОГО! Ты добрался до консоли!", "color: blue; font-size: 20px;");
-        console.log("Твой второй флаг: FLAG{CONSOLE_MASTER_77}");
+        // Это сообщение появится в консоли браузера (F12 -> Console)
+        console.log("%c--- СИСТЕМНОЕ СООБЩЕНИЕ ---", "color: orange; font-weight: bold; font-size: 16px;");
+        console.log("Доступ к уровню 3 заблокирован.");
+        console.log("Ключ дешифрации: FLAG{CONSOLE_HACKER_2026}");
+        console.log("---------------------------");
 
         const input = document.getElementById('flagInput');
         const button = document.getElementById('nextLevelBtn');
-        const SECRET_FLAG = "FLAG{CONSOLE_MASTER_77}";
+        const warning = document.getElementById('warning');
+        
+        const FINAL_FLAG = "FLAG{CONSOLE_HACKER_2026}";
 
         input.addEventListener('input', () => {
-            if (input.value.trim() === SECRET_FLAG) {
+            if (input.value.trim() === FINAL_FLAG) {
                 button.disabled = false;
                 button.style.backgroundColor = "#28a745";
+                warning.style.display = "none";
             } else {
                 button.disabled = true;
                 button.style.backgroundColor = "#007bff";
+                if (input.value.length > 5) {
+                    warning.style.display = "block";
+                }
             }
         });
 
         button.addEventListener('click', () => {
-            window.location.href = "winner.html";
+            alert('Поздравляю! Ты взломал уровень папы! \n\nТы крутышка!.\n\nТеперь ТВОЙ ХОД:\n1. Создай файл levels/level3.html\n2. Придумай свою загадку для меня!');
+            // Можно перенаправить на главную, чтобы он начал заново или начал кодить
+            window.location.href = "../index.html";
         });
     </script>
 </body>
